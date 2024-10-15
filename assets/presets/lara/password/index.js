@@ -4,8 +4,7 @@ export default {
             'inline-flex relative',
             {
                 'opacity-60 select-none pointer-events-none cursor-default': props.disabled
-            },
-            { '[&>input]:pr-10': props.toggleMask }
+            }
         ]
     }),
     panel: {
@@ -57,16 +56,16 @@ export default {
         ]
     }),
     showicon: {
-        class: ['absolute top-1/2 right-3 -mt-2 z-10', 'text-surface-600 dark:text-white/70']
+        class: ['absolute top-1/2 right-3 -mt-2', 'text-surface-600 dark:text-white/70']
     },
     hideicon: {
-        class: ['absolute top-1/2 right-3 -mt-2 z-10', 'text-surface-600 dark:text-white/70']
+        class: ['absolute top-1/2 right-3 -mt-2', 'text-surface-600 dark:text-white/70']
     },
     input: {
         root: ({ props, context, parent }) => ({
             class: [
                 // Font
-                'leading-[normal]',
+                'font-sans leading-none',
 
                 // Flex
                 { 'flex-1 w-[1%]': parent.instance.$name == 'InputGroup' },
@@ -98,13 +97,10 @@ export default {
 
                 // States
                 {
-                    'hover:border-primary': !context.disabled && !parent.props.invalid,
+                    'hover:border-primary-500 dark:hover:border-primary-400': !context.disabled && !parent.props.invalid,
                     'focus:outline-none focus:outline-offset-0 focus:ring focus:ring-primary-500/50 dark:focus:ring-primary-400/50 focus:z-10': !context.disabled,
                     'opacity-60 select-none pointer-events-none cursor-default': context.disabled
                 },
-
-                // Filled State *for FloatLabel
-                { filled: parent.instance?.$parentInstance?.$name == 'FloatLabel' && parent.props.modelValue !== null && parent.props.modelValue?.length !== 0 },
 
                 // Misc
                 'appearance-none',

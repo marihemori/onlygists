@@ -111,7 +111,7 @@ export default {
 
             // Color
             'dark:text-white/80',
-            { 'bg-primary-highlight text-primary-highlight-inverse': context.selected },
+            { 'bg-primary-50 text-primary-700 dark:bg-primary-400/30': context.selected },
             { 'bg-surface-0 text-surface-600 dark:bg-surface-800': !context.selected },
 
             // Hover & Flexbox
@@ -146,7 +146,8 @@ export default {
             context?.size === 'small' ? 'p-2' : context?.size === 'large' ? 'p-5' : 'p-4',
 
             // Color
-            (props.sortable === '' || props.sortable) && context.sorted ? 'bg-primary-highlight text-primary-highlight-inverse' : 'bg-surface-50 text-surface-700 dark:text-white/80 dark:bg-surface-800',
+            (props.sortable === '' || props.sortable) && context.sorted ? 'bg-primary-50 text-primary-700' : 'bg-surface-50 text-surface-700',
+            (props.sortable === '' || props.sortable) && context.sorted ? 'dark:text-white dark:bg-primary-400/30' : 'dark:text-white/80 dark:bg-surface-800',
             'border-surface-200 dark:border-surface-700',
 
             // States
@@ -185,7 +186,8 @@ export default {
                 context?.size === 'small' ? 'p-2' : context?.size === 'large' ? 'p-5' : 'p-4',
 
                 // Color
-                (props.sortable === '' || props.sortable) && context.sorted ? 'bg-primary-highlight text-primary-highlight-inverse' : 'bg-surface-50 text-surface-700 dark:text-white/80 dark:bg-surface-800',
+                (props.sortable === '' || props.sortable) && context.sorted ? 'bg-primary-50 text-primary-700' : 'bg-surface-50 text-surface-700',
+                (props.sortable === '' || props.sortable) && context.sorted ? 'dark:text-white dark:bg-primary-400/30' : 'dark:text-white/80 dark:bg-surface-800',
                 'border-surface-200 dark:border-surface-700',
 
                 // States
@@ -223,10 +225,14 @@ export default {
                 },
                 { 'first:border-l border-r border-b': context?.showGridlines },
 
+                // Color
+                'bg-surface-0 dark:bg-surface-800',
+
                 // Spacing
                 context?.size === 'small' ? 'p-2' : context?.size === 'large' ? 'p-5' : 'p-4',
 
                 // Misc
+                'dark:border-surface-700',
                 {
                     'cursor-pointer': context.selectable,
                     sticky: context.scrollable && context.scrollDirection === 'both' && context.frozen,
@@ -269,7 +275,7 @@ export default {
             ]
         },
         sorticon: ({ context }) => ({
-            class: ['ml-2 inline-block', context.sorted ? 'fill-primary-highlight-inverse' : 'fill-surface-700 dark:fill-white/70']
+            class: ['ml-2 inline-block', context.sorted ? 'fill-primary-700 dark:fill-white/80' : 'fill-surface-700 dark:fill-white/70']
         }),
         sortbadge: {
             class: [
@@ -286,7 +292,8 @@ export default {
                 'ml-2',
 
                 // Color
-                'text-primary-highlight-inverse bg-primary-highlight'
+                'text-primary-700 dark:text-white',
+                'bg-primary-50 dark:bg-primary-400/30'
             ]
         },
         columnresizer: {
@@ -309,7 +316,7 @@ export default {
                 'cursor-col-resize'
             ]
         },
-        rowCheckbox: ({ props, context, instance }) => ({
+        rowCheckbox: {
             root: {
                 class: [
                     'relative',
@@ -330,7 +337,7 @@ export default {
                     'select-none'
                 ]
             },
-            box: {
+            box: ({ props, context }) => ({
                 class: [
                     // Alignment
                     'flex',
@@ -348,13 +355,13 @@ export default {
                     // Colors
                     {
                         'border-surface-200 bg-surface-0 dark:border-surface-700 dark:bg-surface-900': !context.checked,
-                        'border-primary bg-primary': context.checked
+                        'border-primary-500 bg-primary-500 dark:border-primary-400 dark:bg-primary-400': context.checked
                     },
 
                     // States
                     {
-                        'peer-hover:border-primary': !props.disabled && !context.checked,
-                        'peer-hover:bg-primary-hover peer-hover:border-primary-hover': !props.disabled && context.checked,
+                        'peer-hover:border-primary-500 dark:peer-hover:border-primary-400': !props.disabled && !context.checked,
+                        'peer-hover:bg-primary-700 dark:peer-hover:bg-primary-300 peer-hover:border-primary-700 dark:peer-hover:border-primary-300': !props.disabled && context.checked,
                         'peer-focus-visible:border-primary-500 dark:peer-focus-visible:border-primary-400 peer-focus-visible:ring-2 peer-focus-visible:ring-primary-400/20 dark:peer-focus-visible:ring-primary-300/20': !props.disabled,
                         'cursor-default opacity-60': props.disabled
                     },
@@ -363,7 +370,7 @@ export default {
                     'transition-colors',
                     'duration-200'
                 ]
-            },
+            }),
             input: {
                 class: [
                     'peer',
@@ -402,17 +409,14 @@ export default {
                     'h-4',
 
                     // Colors
-                    {
-                        'text-white dark:text-surface-900': !instance.partialChecked,
-                        'text-gray dark:text-white': instance.partialChecked
-                    },
+                    'text-white dark:text-surface-900',
 
                     // Transitions
                     'transition-all',
                     'duration-200'
                 ]
             }
-        }),
+        },
 
         transition: {
             enterFromClass: 'opacity-0 scale-y-[0.8]',
@@ -422,6 +426,6 @@ export default {
         }
     },
     resizehelper: {
-        class: 'absolute hidden w-[2px] z-20 bg-primary'
+        class: 'absolute hidden w-[2px] z-20 bg-primary-500 dark:bg-primary-400'
     }
 };

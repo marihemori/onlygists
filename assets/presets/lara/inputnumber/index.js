@@ -22,7 +22,7 @@ export default {
                 'flex flex-auto',
 
                 // Font
-                'leading-[normal]',
+                'font-sans leading-none',
 
                 //Text
                 { 'text-center': parent.props.showButtons && parent.props.buttonLayout == 'vertical' },
@@ -37,27 +37,26 @@ export default {
                 { 'rounded-tl-none rounded-bl-none': parent.props.showButtons && parent.props.buttonLayout == 'horizontal' },
                 { 'rounded-none': parent.props.showButtons && parent.props.buttonLayout == 'vertical' },
 
+                { '!rounded-none': parent.instance.$parentInstance?.$name == 'InputGroup' && !parent.props.showButtons },
                 { 'border-0': parent.instance.$parentInstance?.$name == 'InputGroup' && !parent.props.showButtons },
 
                 // Colors
-                'text-surface-800 dark:text-white/80',
+                'text-surface-600 dark:text-surface-200',
                 'placeholder:text-surface-400 dark:placeholder:text-surface-500',
                 'bg-surface-0 dark:bg-surface-900',
                 'border',
                 { 'border-surface-300 dark:border-surface-600': !parent.props.invalid },
 
                 // Invalid State
-                'invalid:focus:ring-red-200',
-                'invalid:hover:border-red-500',
                 { 'border-red-500 dark:border-red-400': parent.props.invalid },
 
                 // States
-                { 'hover:border-primary': !parent.props.invalid },
+                { 'hover:border-primary-500 dark:hover:border-primary-400': !parent.props.invalid },
                 'focus:outline-none focus:outline-offset-0 focus:ring focus:ring-primary-500/50 dark:focus:ring-primary-400/50 focus:z-10',
                 { 'opacity-60 select-none pointer-events-none cursor-default': context.disabled },
 
                 // Filled State *for FloatLabel
-                { filled: parent.instance?.$parentInstance?.$name == 'FloatLabel' && parent.state.d_modelValue !== null },
+                { filled: parent.instance?.$name == 'FloatLabel' && context.filled },
 
                 //Position
                 { 'order-2': parent.props.buttonLayout == 'horizontal' || parent.props.buttonLayout == 'vertical' }
@@ -88,10 +87,10 @@ export default {
                 { 'order-3': parent.props.showButtons && parent.props.buttonLayout == 'horizontal' },
                 { 'order-1': parent.props.showButtons && parent.props.buttonLayout == 'vertical' },
 
-                // Colors
-                'text-primary-inverse',
-                'bg-primary',
-                'border-primary',
+                //Color
+                'text-white dark:text-surface-900',
+                'bg-primary-500 dark:bg-primary-400',
+                'border border-primary-500 dark:border-primary-400',
 
                 // Sizing
                 'w-[3rem]',
@@ -107,7 +106,7 @@ export default {
 
                 //States
                 'focus:outline-none focus:outline-offset-0 focus:ring',
-                'hover:bg-primary-hover hover:border-primary-hover',
+                'hover:bg-primary-600 dark:hover:bg-primary-300 hover:border-primary-600 dark:hover:border-primary-300',
 
                 //Misc
                 'cursor-pointer overflow-hidden select-none'
@@ -133,10 +132,10 @@ export default {
                 { 'order-1': parent.props.showButtons && parent.props.buttonLayout == 'horizontal' },
                 { 'order-3': parent.props.showButtons && parent.props.buttonLayout == 'vertical' },
 
-                // Colors
-                'text-primary-inverse',
-                'bg-primary',
-                'border-primary',
+                //Color
+                'text-white dark:text-surface-900',
+                'bg-primary-500 dark:bg-primary-400',
+                'border border-primary-500 dark:border-primary-400',
 
                 // Sizing
                 'w-[3rem]',
@@ -152,7 +151,7 @@ export default {
 
                 //States
                 'focus:outline-none focus:outline-offset-0 focus:ring',
-                'hover:bg-primary-hover hover:border-primary-hover',
+                'hover:bg-primary-600 dark:hover:bg-primary-300 hover:border-primary-600 dark:hover:border-primary-300',
 
                 //Misc
                 'cursor-pointer overflow-hidden select-none'

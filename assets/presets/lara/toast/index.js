@@ -35,15 +35,9 @@ export default {
             }
         ]
     }),
-    content: ({ props }) => ({
-        class: [
-          'flex p-4',
-          {
-            'items-start': props.message.summary,
-            'items-center': !props.message.summary,
-          },
-        ],
-    }),
+    content: {
+        class: 'flex items-start p-4'
+    },
     icon: {
         class: [
             // Sizing and Spacing
@@ -62,9 +56,9 @@ export default {
     summary: {
         class: 'font-bold block'
     },
-    detail: ({ props }) => ({
-        class: ['block', { 'mt-2': props.message.summary }],
-    }),
+    detail: {
+        class: 'mt-2 block'
+    },
     closebutton: {
         class: [
             // Flexbox

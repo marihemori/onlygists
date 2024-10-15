@@ -156,7 +156,7 @@ export default {
             // Color
             'text-surface-500 dark:text-white/80',
             {
-                'bg-primary-highlight border-primary-highlight  text-primary-highlight-inverse': context.active
+                'bg-primary-50 border-primary-50 dark:border-transparent text-primary-700 dark:text-surface-0 dark:bg-primary-400/30': context.active
             },
 
             // State
@@ -196,7 +196,7 @@ export default {
                 'duration-200',
 
                 // States
-                'hover:border-primary',
+                'hover:border-primary-500 dark:hover:border-primary-300',
                 { 'focus:outline-none focus:outline-offset-0 focus:ring focus:ring-primary-400/50 dark:focus:ring-primary-300/50': !state.focused },
 
                 // Misc
@@ -208,7 +208,8 @@ export default {
         input: {
             class: [
                 //Font
-                'leading-[normal]',
+                'font-sans',
+                'leading-5',
 
                 // Display
                 'block',
@@ -307,7 +308,8 @@ export default {
                 // Color
                 { 'text-surface-700 dark:text-white/80': !context.focused && !context.selected },
                 { 'bg-surface-50 dark:bg-surface-600/60 text-surface-700 dark:text-white/80': context.focused && !context.selected },
-                { 'bg-primary-highlight text-primary-highlight-inverse': context.selected },
+                { 'bg-primary-100 dark:bg-primary-400/40 text-primary-700 dark:text-white/80': context.focused && context.selected },
+                { 'bg-primary-50 dark:bg-primary-400/40 text-primary-700 dark:text-white/80': !context.focused && context.selected },
 
                 //States
                 { 'hover:bg-surface-100 dark:hover:bg-surface-600/80': !context.focused && !context.selected },
@@ -334,6 +336,7 @@ export default {
                     'relative',
 
                     //Font
+                    'font-sans',
                     'leading-none',
 
                     // Display
@@ -358,7 +361,7 @@ export default {
                     'duration-200',
 
                     // States
-                    'hover:border-primary',
+                    'hover:border-primary-500 dark:hover:border-primary-400',
                     'focus:outline-none focus:shadow-none',
                     'focus:outline-none focus:outline-offset-0 focus:ring focus:ring-primary-500/50 dark:focus:ring-primary-400/50',
 
@@ -391,7 +394,7 @@ export default {
                 'duration-200',
 
                 // States
-                'hover:border-primary',
+                'hover:border-primary-500 dark:hover:border-primary-300',
                 { 'focus:outline-none focus:outline-offset-0 focus:ring focus:ring-primary-400/50 dark:focus:ring-primary-300/50': !state.focused },
 
                 // Misc
@@ -403,6 +406,7 @@ export default {
         input: {
             class: [
                 //Font
+                'font-sans',
                 'leading-none',
 
                 // Display
@@ -502,7 +506,8 @@ export default {
                 // Color
                 { 'text-surface-700 dark:text-white/80': !context.focused && !context.selected },
                 { 'bg-surface-50 dark:bg-surface-600/60 text-surface-700 dark:text-white/80': context.focused && !context.selected },
-                { 'bg-primary-highlight text-primary-highlight-inverse': context.selected },
+                { 'bg-primary-100 dark:bg-primary-400/40 text-primary-700 dark:text-white/80': context.focused && context.selected },
+                { 'bg-primary-50 dark:bg-primary-400/40 text-primary-700 dark:text-white/80': !context.focused && context.selected },
 
                 //States
                 { 'hover:bg-surface-100 dark:hover:bg-surface-600/80': !context.focused && !context.selected },
@@ -518,11 +523,5 @@ export default {
                 'whitespace-nowrap'
             ]
         })
-    },
-    start: {
-        class: 'mr-auto'
-    },
-    end: {
-        class: 'ml-auto'
     }
 };

@@ -1,22 +1,16 @@
 export default {
-    root: ({ props, state, parent }) => ({
+    root: ({ props, state }) => ({
         class: [
             // Display and Position
             'inline-flex',
             'relative',
 
             // Shape
-            { 'rounded-md': parent.instance.$name !== 'InputGroup' },
-            { 'first:rounded-l-md rounded-none last:rounded-r-md': parent.instance.$name == 'InputGroup' },
-            { 'border-0 border-y border-l last:border-r': parent.instance.$name == 'InputGroup' },
-            { 'first:ml-0 ml-[-1px]': parent.instance.$name == 'InputGroup' && !props.showButtons },
+            'rounded-md',
 
             // Color and Background
             'bg-surface-0 dark:bg-surface-900',
-
-            'border border-surface-300',
-            { 'dark:border-surface-700': parent.instance.$name != 'InputGroup' },
-            { 'dark:border-surface-600': parent.instance.$name == 'InputGroup' },
+            'border',
             { 'border-surface-300 dark:border-surface-600': !props.invalid },
 
             // Invalid State
@@ -27,7 +21,7 @@ export default {
             'duration-200',
 
             // States
-            { 'hover:border-primary': !props.invalid },
+            { 'hover:border-primary-500 dark:hover:border-primary-300': !props.invalid },
             { 'outline-none outline-offset-0 ring ring-primary-400/50 dark:ring-primary-300/50': state.focused },
 
             // Misc
@@ -36,10 +30,11 @@ export default {
             { 'opacity-60': props.disabled, 'pointer-events-none': props.disabled, 'cursor-default': props.disabled }
         ]
     }),
-    input: ({ props, parent }) => ({
+    input: ({ props }) => ({
         class: [
             //Font
-            'leading-[normal]',
+            'font-sans',
+            'leading-none',
 
             // Display
             'block',
@@ -65,9 +60,6 @@ export default {
 
             // States
             'focus:outline-none focus:shadow-none',
-
-            // Filled State *for FloatLabel
-            { filled: parent.instance?.$name == 'FloatLabel' && props.modelValue !== null },
 
             // Misc
             'relative',
@@ -140,19 +132,16 @@ export default {
             'm-0',
             'py-3 px-5',
 
-            // Colors
-            {
-                'text-surface-700 dark:text-white/80': !context.focused && !context.selected,
-                'bg-surface-200 dark:bg-surface-600/60': context.focused && !context.selected,
-                'text-surface-700 dark:text-white/80': context.focused && !context.selected,
-
-                'text-primary-highlight-inverse': context.selected,
-                'bg-primary-highlight': context.selected
-            },
+            // Color
+            { 'text-surface-700 dark:text-white/80': !context.focused && !context.selected && !context.disabled },
+            { 'text-surface-600 dark:text-white/70': !context.focused && !context.selected && context.disabled },
+            { 'bg-surface-200 dark:bg-surface-600/60 text-surface-700 dark:text-white/80': context.focused && !context.selected },
+            { 'bg-primary-100 dark:bg-primary-400/40 text-primary-700 dark:text-white/80': context.focused && context.selected },
+            { 'bg-primary-50 dark:bg-primary-400/40 text-primary-700 dark:text-white/80': !context.focused && context.selected },
 
             //States
             { 'hover:bg-surface-100 dark:hover:bg-surface-600/80': !context.focused && !context.selected },
-            { 'hover:bg-primary-highlight-hover': context.selected },
+            { 'hover:text-surface-700 hover:bg-surface-100 dark:hover:text-white dark:hover:bg-surface-600/80': context.focused && !context.selected },
             'focus-visible:outline-none focus-visible:outline-offset-0 focus-visible:ring focus-visible:ring-inset focus-visible:ring-primary-400/50 dark:focus-visible:ring-primary-300/50',
 
             // Transitions
@@ -219,7 +208,8 @@ export default {
     filterinput: {
         class: [
             // Font
-            'leading-[normal]',
+            'font-sans',
+            'leading-none',
 
             // Sizing
             'pr-7 py-3 px-3',
@@ -241,7 +231,7 @@ export default {
             'duration-200',
 
             // States
-            'hover:border-primary',
+            'hover:border-primary-500 dark:hover:border-primary-300',
             'focus:ring focus:outline-none focus:outline-offset-0',
             'focus:ring-primary-400/50 dark:focus:ring-primary-300/50',
 
@@ -265,9 +255,6 @@ export default {
             // Spacing
             '-mt-2'
         ]
-    },
-    loadingicon: {
-        class: 'text-surface-400 dark:text-surface-500 animate-spin'
     },
     transition: {
         enterFromClass: 'opacity-0 scale-y-[0.8]',

@@ -48,12 +48,12 @@ export default {
             'font-bold',
 
             // Colors
-            'text-primary-inverse',
-            'bg-primary',
-            'border-primary',
+            'text-white dark:text-surface-900',
+            'bg-primary-500 dark:bg-primary-400',
+            'border-primary-500 dark:border-primary-400',
 
             // States
-            'hover:bg-primary-hover',
+            'hover:bg-primary-600 dark:hover:bg-primary-300',
 
             // Misc
             'overflow-hidden',
@@ -125,7 +125,7 @@ export default {
         class: 'shrink-0'
     },
     fileName: {
-        class: 'mb-2 break-all'
+        class: 'mb-2'
     },
     fileSize: {
         class: 'mr-2'
@@ -156,7 +156,7 @@ export default {
                 'absolute flex items-center justify-center overflow-hidden',
 
                 // Colors
-                'bg-primary',
+                'bg-primary-500 dark:bg-primary-400',
 
                 // Spacing & Sizing
                 'm-0',

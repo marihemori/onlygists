@@ -41,7 +41,7 @@ export default {
             },
 
             // Colors
-            'bg-primary'
+            'bg-primary-500 dark:bg-primary-400'
         ]
     }),
     labellist: ({ props }) => ({
@@ -85,7 +85,7 @@ export default {
             'inline-flex',
 
             // Background Color
-            'bg-primary',
+            'bg-primary-500 dark:bg-primary-400',
 
             // Size
             'w-2 h-2',

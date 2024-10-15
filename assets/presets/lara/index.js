@@ -30,17 +30,6 @@ import tristatecheckbox from './tristatecheckbox';
 import button from './button';
 import speeddial from './speeddial';
 import splitbutton from './splitbutton';
-import accordion from './accordion';
-import card from './card';
-import deferred from './deferred';
-import divider from './divider';
-import fieldset from './fieldset';
-import panel from './panel';
-import scrollpanel from './scrollpanel';
-import splitter from './splitter';
-import stepper from './stepper';
-import tabview from './tabview';
-import toolbar from './toolbar';
 import datatable from './datatable';
 import dataview from './dataview';
 import orderlist from './orderlist';
@@ -50,6 +39,22 @@ import picklist from './picklist';
 import tree from './tree';
 import treetable from './treetable';
 import timeline from './timeline';
+import accordion from './accordion';
+import card from './card';
+import divider from './divider';
+import fieldset from './fieldset';
+import panel from './panel';
+import scrollpanel from './scrollpanel';
+import splitter from './splitter';
+import stepper from './stepper';
+import tabview from './tabview';
+import toolbar from './toolbar';
+import confirmpopup from './confirmpopup';
+import dialog from './dialog';
+import overlaypanel from './overlaypanel';
+import sidebar from './sidebar';
+import tooltip from './tooltip';
+import fileupload from './fileupload';
 import breadcrumb from './breadcrumb';
 import contextmenu from './contextmenu';
 import dock from './dock';
@@ -60,6 +65,9 @@ import panelmenu from './panelmenu';
 import steps from './steps';
 import tabmenu from './tabmenu';
 import tieredmenu from './tieredmenu';
+import message from './message';
+import inlinemessage from './inlinemessage';
+import toast from './toast';
 import carousel from './carousel';
 import galleria from './galleria';
 import image from './image';
@@ -77,22 +85,13 @@ import progressspinner from './progressspinner';
 import ripple from './ripple';
 import tag from './tag';
 import terminal from './terminal';
-import message from './message';
-import inlinemessage from './inlinemessage';
-import toast from './toast';
-import fileupload from './fileupload';
-import confirmpopup from './confirmpopup';
-import dialog from './dialog';
-import overlaypanel from './overlaypanel';
-import sidebar from './sidebar';
-import tooltip from './tooltip';
 
 export default {
     global,
     directives: {
+        tooltip,
         badgedirective,
-        ripple,
-        tooltip
+        ripple
     },
     autocomplete,
     calendar,
@@ -125,17 +124,6 @@ export default {
     button,
     speeddial,
     splitbutton,
-    accordion,
-    card,
-    deferred,
-    divider,
-    fieldset,
-    panel,
-    scrollpanel,
-    splitter,
-    stepper,
-    tabview,
-    toolbar,
     datatable,
     dataview,
     orderlist,
@@ -145,6 +133,21 @@ export default {
     tree,
     treetable,
     timeline,
+    accordion,
+    card,
+    divider,
+    fieldset,
+    panel,
+    scrollpanel,
+    splitter,
+    stepper,
+    tabview,
+    toolbar,
+    confirmpopup,
+    dialog,
+    overlaypanel,
+    sidebar,
+    fileupload,
     breadcrumb,
     contextmenu,
     dock,
@@ -155,6 +158,9 @@ export default {
     steps,
     tabmenu,
     tieredmenu,
+    message,
+    inlinemessage,
+    toast,
     carousel,
     galleria,
     image,
@@ -169,13 +175,5 @@ export default {
     progressbar,
     progressspinner,
     tag,
-    terminal,
-    message,
-    inlinemessage,
-    toast,
-    fileupload,
-    confirmpopup,
-    dialog,
-    overlaypanel,
-    sidebar
+    terminal
 }
