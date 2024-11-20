@@ -9,6 +9,7 @@
         </div>
         <div class="hidden md:flex items-center">
           <Button
+            @click="emit('wants-be-creator')"
             label="Continuar como creator"
             icon-pos="right"
             icon="pi pi-arrow-right"
@@ -21,7 +22,9 @@
 </template>
 
 <script lang="ts" setup>
-
+const emit = defineEmits<{
+  (e: 'wants-be-creator'): void
+}>()
 </script>
 
 <style>
